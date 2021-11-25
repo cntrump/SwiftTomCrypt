@@ -1,6 +1,6 @@
 # SwiftTomCrypt
 
-SwiftPM for [libtomecrypt](https://github.com/libtom/libtomcrypt) & [libtommath](https://github.com/libtom/libtommath)
+SwiftPM support for [libtomecrypt](https://github.com/libtom/libtomcrypt) & [libtommath](https://github.com/libtom/libtommath)
 
 ```swift
 dependencies: [
