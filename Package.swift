@@ -32,7 +32,9 @@ let package = Package(
             publicHeadersPath: "libtomcrypt_modulemap",
             cSettings: [
                 .headerSearchPath("libtomcrypt/src/headers"),
+                .headerSearchPath("libtommath"),
                 .define("USE_LTM"),
+                .define("LTM_DESC"),
                 .define("LTC_NO_TEST")
             ]),
         .target(
