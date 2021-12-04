@@ -45,7 +45,9 @@ let package = Package(
                 "libtommath/doc",
                 "libtommath/etc",
                 "libtommath/logs",
-                "libtommath/mtest"],
+                "libtommath/mtest",
+                "libtommath/Package.swift"
+            ],
             sources: ["libtommath"],
             publicHeadersPath: "libtommath_modulemap",
             cSettings: [
