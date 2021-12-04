@@ -11,11 +11,11 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "libtomcrypt",
-            targets: ["libtomcrypt"]),
+            name: "TomCrypt",
+            targets: ["TomCrypt"]),
         .library(
-            name: "libtommath",
-            targets: ["libtommath"])
+            name: "TomMath",
+            targets: ["TomMath"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -25,8 +25,8 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "libtomcrypt",
-            dependencies: ["libtommath"],
+            name: "TomCrypt",
+            dependencies: ["TomMath"],
             path: ".",
             sources: ["libtomcrypt/src"],
             publicHeadersPath: "libtomcrypt_modulemap",
@@ -38,7 +38,7 @@ let package = Package(
                 .define("LTC_NO_TEST")
             ]),
         .target(
-            name: "libtommath",
+            name: "TomMath",
             path: ".",
             exclude: [
                 "libtommath/demo",
@@ -50,7 +50,17 @@ let package = Package(
             publicHeadersPath: "libtommath_modulemap",
             cSettings: [
                 .unsafeFlags(["-flto=thin"])  // for Dead Code Elimination
-            ])
+            ]),
+        .testTarget(name: "TomCryptTests",
+                    dependencies: ["TomCrypt"],
+                    path: "Tests",
+                    sources: ["TomCryptTests.swift"]
+                   ),
+        .testTarget(name: "TomMathTests",
+                    dependencies: ["TomMath"],
+                    path: "Tests",
+                    sources: ["TomMathTests.swift"]
+                   )
     ],
     cLanguageStandard: .gnu11,
     cxxLanguageStandard: .gnucxx14
