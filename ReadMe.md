@@ -9,12 +9,24 @@ dependencies: [
 ],
 ```
 
+## Build
+
+```
+swift build
+```
+
+## Unit test
+
+```
+swift test
+```
+
 ## Example
 
 libtomcrypt
 
 ```swift
-import libtomcrypt
+import TomCrypt
 
 let data = "123".data(using: .utf8)
 var md = hash_state()
@@ -33,7 +45,7 @@ md5_done(&md, &hash)
 libtommath
 
 ```swift
-import libtommath
+import TomMath
 
 var a = mp_int()
 mp_init(&a)
